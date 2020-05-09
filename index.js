@@ -56,11 +56,14 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+return Math.floor((Math.random()*2));
 
 }
+console.log(inning());
+console.log(inning());
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +79,25 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inn,count){
 
   /*Code Here*/
+  let score={
+    "Home":0,
+    "Away":0,
+  };
+ for (let i=0;i<=count;i++){
+score["Home"]+=inn;
+score["Away"]+=inn;
+ }
+return score;
+ };
+ 
 
-}
+
+console.log(finalScore(inning(),9));
+
+
 
 /* Task 4: 
 
