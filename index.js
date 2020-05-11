@@ -62,7 +62,7 @@ return Math.floor((Math.random()*2));
 
 }
 console.log(inning());
-console.log(inning());
+
 
 
 /* Task 3: finalScore()
@@ -87,15 +87,15 @@ function finalScore(inn,count){
     "Away":0,
   };
  for (let i=0;i<=count;i++){
-score["Home"]+=inn;
-score["Away"]+=inn;
+score["Home"]+=inn();
+score["Away"]+=inn();
  }
 return score;
  };
  
 
 
-console.log(finalScore(inning(),9));
+console.log(finalScore(inning,9));
 
 
 
@@ -120,8 +120,19 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(inn,count) {
+
   /* CODE HERE */
-}
+  let score={
+    "Home":0,
+    "Away":0,
+  };
+ for (let i=0;i<count;i++){
+score["Home"]+=inn();
+score["Away"]+=inn();
+console.log(`${i+1}st inning: ${score.Home} - ${score.Away}`);
+ }
+return score;
+};
 
-
+scoreboard(inning,9);
