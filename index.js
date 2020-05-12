@@ -27,10 +27,14 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * counter 1 Its within function and counter 2 is outside the function
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * counter 1 is inside the scope and counter 2 is global scope
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * counter 1 - if you are applying for only one time then its preferable.
+ * counter 2 - if you are apllying for more than one time then its preferable.
  *
 */
 
@@ -43,6 +47,7 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
+
 
 // counter2 code
 let count = 0;
@@ -130,7 +135,24 @@ function scoreboard(inn,count) {
  for (let i=0;i<count;i++){
 score["Home"]+=inn();
 score["Away"]+=inn();
-console.log(`${i+1}st inning: ${score.Home} - ${score.Away}`);
+let suffix;
+switch(i){
+  case 0:
+    suffix = "st";
+    break;
+    case 1:
+    suffix="nd";
+    break;
+    case 2:
+    suffix="rd";
+    break;
+    default:
+    suffix="th";
+
+
+
+}
+console.log(`${i+1}${suffix} inning: ${score.Home} - ${score.Away}`);
  }
 return score;
 };
